@@ -1,0 +1,47 @@
+/* zoom control */
+
+.leaflet-container .leaflet-control-zoom {
+    margin-left: 677px;
+    margin-top: 600px;
+}
+.leaflet-control-zoom a {
+/*    width: 22px;
+    height: 22px;
+    text-align: center;
+    text-decoration: none;*/
+    color: #4169e2;
+}
+.leaflet-control-zoom a,
+.leaflet-control-layers-toggle {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: block;
+}
+.leaflet-control-zoom a:hover {
+    background-color: #fff;
+    color: #777;
+}
+.leaflet-control-zoom-in {
+    font: bold 18px/24px Arial, Helvetica, sans-serif;
+}
+.leaflet-control-zoom-out {
+    font: bold 23px/20px Tahoma, Verdana, sans-serif;
+}
+.leaflet-control-zoom a.leaflet-control-zoom-disabled {
+    cursor: default;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #bbb;
+}
+
+.leaflet-touch .leaflet-control-zoom a {
+    width: 30px;
+    height: 30px;
+}
+.leaflet-touch .leaflet-control-zoom-in {
+    font-size: 24px;
+    line-height: 29px;
+}
+.leaflet-touch .leaflet-control-zoom-out {
+    font-size: 28px;
+    line-height: 24px;
+}

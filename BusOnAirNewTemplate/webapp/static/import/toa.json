@@ -1,0 +1,40 @@
+toa = {
+    "toaObjectsList": [
+        {
+            "id": "10",
+            "cod": "S01",
+            "latLon": {
+                "lat": "42.35253",
+                "lon": "13.34921"
+            },
+            "name": "optimes",
+            "bus" : [
+                {"bus":"M16", "time": "3", "color":"#FF0000"},
+                {"bus":"M11", "time": "7", "color":"#00FF00"}
+                
+                ]
+        },
+        {
+            "id": "6",
+            "cod": "S02",
+            "latLon": {
+                "lat": "42.33808",
+                "lon": "13.4308"
+            },
+            "name": "collevernesco-sant'elia2",
+            "bus" : [{"bus":"M11", "time": "2", "color":"FF0000"},
+                     {"bus":"M16", "time": "7", "color":"00FF00"}]
+        },
+        {
+            "id": "7",
+            "cod": "S02",
+            "latLon": {
+                "lat": "42.34051",
+                "lon": "13.39945"
+            },
+            "name": "biviomartini",
+            "bus" : [{"bus":"M11", "time": "1", "color":"FF0000"},
+                     {"bus":"M16", "time": "5", "color":"00FF00"}]
+        }
+    ]
+}

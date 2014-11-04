@@ -1,0 +1,32 @@
+#wrapper
+  #top-nav.fixed.skin-6.row
+    .col-md-4
+      a.brand(href="#")
+        span Bus On Air
+        span.text-toggle
+      button#sidebarToggle.navbar-toggle.pull-left(type="button")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    .col-md-8
+      span.linename.hidden M5DS
+      span.separatorzero.separator.hidden
+      span.firstavailablerun.hidden Next run: 
+        span.nextrun.fa.fa-clock-o 12:15 &nbsp;
+        a.followbus.fa.fa-code-fork(href="javascript:void(0);") REALTIME
+        &nbsp;
+      span#separatortwo.separator.hidden |
+      span.currentpositionname.hidden.fa.fa-flag &nbsp; Finanza
+      span#separatorthree.separator.hidden |
+      span.delay.hidden.fa.fa-warning &nbsp;Delay: 
+        span.delayvalue 10
+        | &nbsp;minutes
+  aside.fixed.skin-6
+    .sidebar-inner.scrollable-sidebar
+      .main-menu
+        ul
+          !=partial('tripplanner')
+          !=partial('routesearch')
+          !=partial('information')
+  #main-container
+    #map

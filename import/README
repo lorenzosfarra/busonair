@@ -1,0 +1,13 @@
+== MULTI-DAYS SUPPORT ==
+Every day is described by its own .json file, and has to be placed in the weeklydata/ directory.
+
+IMPORTANT: the time/staticTime attributes have to be ABSOLUTE, so (1440 * dayNumber) + time.
+
+== TEST DATA ==
+In the weeklydata/ directory there are .py scripts created to obtain test data.
+The fastest way to obtain test data is to execute the copyall.py script that takes an integer as an argument corresponding to the number of days to parse. The script reads the basic json data (the day 0) from the runs_day0.json file if the filename is not passed as an argument.
+EXAMPLE: ./copyall.py 7 # create a whole week test data
+
+== IMPORT SCRIPT ==
+The import script is now called testImporterMultiple.sh .
+You can split the import process giving an integer as an argument, but it's not required. Calling the script without arguments will do all the process.

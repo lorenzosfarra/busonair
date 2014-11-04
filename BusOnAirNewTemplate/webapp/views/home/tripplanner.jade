@@ -1,0 +1,39 @@
+li.openable
+  a(href="#")
+    span.menu-icon
+      i.fa.fa-location-arrow.fa-lg
+    span.text Trip planner
+    span.menu-hover
+  ul.submenu
+    li
+      .search-block
+        .input-group
+          span.input-group-btn
+            button.btn.btn-default.btn-sm.disabled(type="button") A
+          input#nomination1.form-control.input-sm.photon-input.nominatim(type="text", placeholder="search here...")
+          ul.photon-autocomplete
+        .input-group
+          span.input-group-btn
+            button.btn.btn-default.btn-sm.disabled(type="button") B
+          input#nomination2.form-control.input-sm.photon-input.nominatim(type="text", placeholder="search here...")
+          ul.photon-autocomplete
+        .form-group
+          select#stato.form-control
+            option(value="1") Monday
+            option(value="2") Tuesday 
+            option(value="3") Wednesday 
+            option(value="4") Thursday 
+            option(value="5") Friday 
+            option(value="6") Saturday 
+            option(value="0") Sunday 
+        .input-group.input-append.bootstrap-timepicker
+          input#timepicker.form-control.input-sm.bootstrap-timepicker(type="text")
+          span.input-group-btn.add-on
+            button.btn.btn-default.btn-sm1(type="button")
+              i.fa.fa-clock-o.fa-lg
+        button#searchgo.btn.btn-primary.extended(type="submit") Go
+  ul#indicazioni.submenu
+    li
+      #statusPanel
+      #directionsPanel
+  

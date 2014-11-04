@@ -1,0 +1,35 @@
+== NEO4J ==
+neo4j/conf/neo4j-wrapper.conf: maximum heap size incremented to 1024MB
+
+Not touched by interesting property is the org.neo4j.server.transaction.timeout=60, against orphaned transactions.
+
+== LOAD IN RAM ==
+$SERVER_URL/init/loadinram loads all the elements in RAM. The "user-friendly" version is $SERVER_URL/init that simply performs an AJAX call to /loadinram showing some stats to the user.
+IMPORTANT: Should be called only once at start-time from an administrator.
+
+== MOST IMPORTANT REAL-TIME APIs ==
+/runs/{id}/rt/updateposition?time={time}&lat={lat}&lon={lon}
+/runs/{id}/rt/getlastgpscheckpoint
+/runs/{id}/rt/getlastgpsposition
+
+== TRACKER CONFIGURATION ==
+The password is the default one: 123456.
+Send an SMS for each of the following statements to the tracker SIM number:
+
+begin+123456
+apn+123456+ +$APN_here
+adminip+123456+ +$UDPServer_IP_here+ +port
+t030s005n+123456
+
+The previous configuration sets the APN, the UDP server:port destination and the repetition period.
+
+The tracker will send the following message to the UDP Server:
+{lat: X.X long: Y.Y speed: Z dd/MM/yy hh:mm bat:F signal:F imei:xyz}
+
+The UDP Server is in the UDPServer/ directory.
+
+== COMMAND LINE UTILS ==
+Different utils are available in the commandline_utils directory.
+
+== DISKS ==
+I have created a new disk, so now there are 2 disks in the machine. The second one is completely dedicated to the neo4j data.

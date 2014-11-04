@@ -1,0 +1,45 @@
+/*display: block; left: 30px; top: 35px; width: 200px;*/
+/*style="display: block; left: 10px; top: 166px; width: 398px;"*/
+.photon-autocomplete {
+/*    display: block;*/
+    left: 30px;
+    top: 35px;
+    width: 200px;
+}
+
+ul.photon-autocomplete {
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 9px #999999;
+}
+.photon-autocomplete li {
+    min-height: 40px;
+    line-height: 1em;
+    padding: 5px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1em;
+}
+.photon-autocomplete li strong {
+    display: block;
+}
+.photon-autocomplete li.on {
+    background-color: #CAE9FD;
+    cursor: pointer;
+}
+.photon-autocomplete li.photon-no-result {
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 40px;
+}
+
+/*.photon-input:focus {
+    width: 200px;
+}*/
+
+.photon-autocomplete li:hover {
+    background-color: #CAE9FD;
+    cursor: pointer;
+}

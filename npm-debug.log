@@ -1,0 +1,41 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'commander' ]
+info using npm@1.0.106
+info using node@v0.4.12
+verbose config file /home/boa/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose into /home/boa/BusOnAir-master [ 'commander' ]
+verbose cache add commander
+verbose cache add [ 'commander', null ]
+silly cache add: name, spec, args [ undefined, 'commander', [ 'commander', null ] ]
+verbose parsed url { pathname: 'commander', href: 'commander' }
+info addNamed [ 'commander', '' ]
+verbose addNamed [ null, '' ]
+verbose GET commander
+verbose raw, before any munging commander
+verbose url resolving [ 'https://registry.npmjs.org/', './commander' ]
+verbose url resolved https://registry.npmjs.org/commander
+verbose etag "3C8M6PFRNJ3VUM9T3R9ULU9I7"
+ERR! Error: SSL Error: CERT_UNTRUSTED
+ERR!     at ClientRequest.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/main.js:252:28)
+ERR!     at ClientRequest.g (events.js:143:14)
+ERR!     at ClientRequest.emit (events.js:64:17)
+ERR!     at HTTPParser.onIncoming (http.js:1357:9)
+ERR!     at HTTPParser.onHeadersComplete (http.js:108:31)
+ERR!     at CleartextStream.ondata (http.js:1231:22)
+ERR!     at CleartextStream._push (tls.js:303:27)
+ERR!     at SecurePair.cycle (tls.js:577:20)
+ERR!     at EncryptedStream.write (tls.js:96:13)
+ERR!     at Socket.ondata (stream.js:36:26)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 3.5.0-27-generic
+ERR! command "node" "/usr/local/bin/npm" "install" "commander"
+ERR! cwd /home/boa/BusOnAir-master
+ERR! node -v v0.4.12
+ERR! npm -v 1.0.106
+verbose exit [ 1, true ]

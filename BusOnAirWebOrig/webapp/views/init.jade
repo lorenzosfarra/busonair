@@ -1,0 +1,55 @@
+!!!
+html
+  head
+    title BusOnAir : AQ Public Transport Route Planner
+    link(rel="stylesheet", href="/css/demo_table.css")
+    link(rel="stylesheet", href="/css/timePicker.css")
+    link(rel="stylesheet", href="/css/style.css")
+    script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js")
+  body
+    .container
+    h1 Initializing the DB, please wait...
+      span#loading
+        img(src="/images/loadinggif.gif")
+    #nodesnumber 
+      span.bolded Nodes number: &nbsp;
+      span.loadingdots
+    #relsnumber
+      span.bolded Relationships number: &nbsp;
+      span.loadingdots
+    #timevalue 
+      span.bolded Loaded in (seconds): &nbsp;
+      span.value
+    
+    script(type='text/javascript')
+      var i = 0;
+      var finished = false;
+    
+      function increment() {
+        if (!finished) { 
+          i += 1;
+          var text = $("#nodesnumber .loadingdots").text();
+          if ((i % 5) !== 0) {
+              text = text + ".";
+          } else {
+              text = ".";
+          }
+          $(".loadingdots").text(text);
+          setTimeout(increment, 500);
+        }
+      }
+    
+      $(document).ready(function() {
+        increment();
+        console.log(document.URL + "/loadinram");
+        $.getJSON(document.URL + "/loadinram", { "relationships": true }, function(data) {
+          console.log(data);
+          $("h1").text("DB Initialized");
+          finished = true;
+          $("#nodesnumber .loadingdots").text(data.nodesNumber);
+          $("#relsnumber .loadingdots").text(data.relsNumber);
+          $("#timevalue .value").hide().text(data.time).fadeIn("slow");
+        });
+      });
+    
+  
