@@ -444,34 +444,34 @@ public class Run {
 	public void addCheckPoint(Double lat, Double lon, int time) {
 		Transaction tx = DbConnection.getDb().beginTx();
 		try {
-  		updatePosition(lat, lon, time);
-  
-  		CheckPoint lastCP = getLastGPSCheckPoint();
-  		CheckPoint nextCP = lastCP.getNextCheckPoint();
-  
-  		int dt = nextCP.getTowards().getTime() * 60 - getLastUpdateTime();
-  
-  		if (dt < 0)
-  			return;
+			updatePosition(lat, lon, time);
 
-  		Node n = DbConnection.getDb().createNode();
-  		CheckPoint newCP = new CheckPoint(n, getLastGPSLatitude(),
-  				getLastGPSLongitude(), dt);
-  
-  		newCP.setTowards(nextCP.getTowards());
-  		newCP.setFrom(lastCP.getFrom());
-  
-  		lastCP.setNextCheckPoint(newCP);
-  		newCP.setNextCheckPoint(nextCP);
-  
-  		addCpToIndex(newCP);
-  		addCpToSpatialIndex(newCP);
-  
-  		setLastCheckPoint(newCP);
-      tx.success();
-    } finally {
-      tx.finish();
-    }
+			CheckPoint lastCP = getLastGPSCheckPoint();
+			CheckPoint nextCP = lastCP.getNextCheckPoint();
+
+			int dt = nextCP.getTowards().getTime() * 60 - getLastUpdateTime();
+
+			if (dt < 0)
+				return;
+
+			Node n = DbConnection.getDb().createNode();
+			CheckPoint newCP = new CheckPoint(n, getLastGPSLatitude(),
+					getLastGPSLongitude(), dt);
+
+			newCP.setTowards(nextCP.getTowards());
+			newCP.setFrom(lastCP.getFrom());
+
+			lastCP.setNextCheckPoint(newCP);
+			newCP.setNextCheckPoint(nextCP);
+
+			addCpToIndex(newCP);
+			addCpToSpatialIndex(newCP);
+
+			setLastCheckPoint(newCP);
+			tx.success();
+		} finally {
+			tx.finish();
+		}
 	}
 
 	public void updateCpSpatialIndex(CheckPoint cp) {
@@ -541,45 +541,49 @@ public class Run {
 		Runs.getRuns().addRunningBus(this);
 		Transaction tx = DbConnection.getDb().beginTx();
 		try {
-  		setLatitude(lat);
-  		setLongitude(lon);
-  		setLastUpdateTime(time);
-  
-  		calculateAndSetLastCP();
-  
-  		// System.out.print("\n\n------ DEBUG --------");
-  		// System.out.print("\n\nLASTCP: " + getLastCheckPoint());
-  		// System.out.print("\n------ DEBUG --------\n\n");
-  
-  		double a, b, c, d, percentualeAvanzamento;
-  		int dt;
-  
-  		CheckPoint cp1 = getLastGPSCheckPoint();
-  		CheckPoint cp2 = cp1.getNextCheckPoint();
-  		a = GeoUtil.getDistance2(cp1.getLatitude(), cp1.getLongitude(),
-  				getLastGPSLatitude(), getLastGPSLongitude());
-  		b = GeoUtil.getDistance2(cp2.getLatitude(), cp2.getLongitude(),
-  				getLastGPSLatitude(), getLastGPSLongitude());
-  		c = GeoUtil.getDistance2(cp1.getLatitude(), cp1.getLongitude(),
-  				cp2.getLatitude(), cp2.getLongitude());
-  
-  		d = (a * a - b * b + c * c) / (2.0 * c);
-  
-  		percentualeAvanzamento = d / c;
-  		dt = (int) ((1.0 - percentualeAvanzamento) * (cp2.getTimeInSeconds() - cp1
-  				.getTimeInSeconds())); // tempo restante all'arrivo al prossimo
-  										// cp
-  
-  		// System.out.print("\npercentualeAvanzamento: " +
-  		// percentualeAvanzamento);
-  		// System.out.print("\ndt: " + dt);
-  
-  		checkPointPassExpected(cp2, time + dt);
-      tx.success();
-    } finally {
-      tx.finish();
-    }
-  }
+			setLatitude(lat);
+			setLongitude(lon);
+			setLastUpdateTime(time);
+
+			calculateAndSetLastCP();
+
+			// System.out.print("\n\n------ DEBUG --------");
+			// System.out.print("\n\nLASTCP: " + getLastCheckPoint());
+			// System.out.print("\n------ DEBUG --------\n\n");
+
+			double a, b, c, d, percentualeAvanzamento;
+			int dt;
+
+			CheckPoint cp1 = getLastGPSCheckPoint();
+			CheckPoint cp2 = cp1.getNextCheckPoint();
+			a = GeoUtil.getDistance2(cp1.getLatitude(), cp1.getLongitude(),
+					getLastGPSLatitude(), getLastGPSLongitude());
+			b = GeoUtil.getDistance2(cp2.getLatitude(), cp2.getLongitude(),
+					getLastGPSLatitude(), getLastGPSLongitude());
+			c = GeoUtil.getDistance2(cp1.getLatitude(), cp1.getLongitude(),
+					cp2.getLatitude(), cp2.getLongitude());
+
+			d = (a * a - b * b + c * c) / (2.0 * c);
+
+			percentualeAvanzamento = d / c;
+			dt = (int) ((1.0 - percentualeAvanzamento) * (cp2
+					.getTimeInSeconds() - cp1.getTimeInSeconds())); // tempo
+																	// restante
+																	// all'arrivo
+																	// al
+																	// prossimo
+																	// cp
+
+			// System.out.print("\npercentualeAvanzamento: " +
+			// percentualeAvanzamento);
+			// System.out.print("\ndt: " + dt);
+
+			checkPointPassExpected(cp2, time + dt);
+			tx.success();
+		} finally {
+			tx.finish();
+		}
+	}
 
 	protected void calculateAndSetLastCP() {
 		CheckPoint nearestCP = getNearestCheckPoint(getLastGPSLatitude(),
@@ -769,7 +773,7 @@ public class Run {
 				}
 				i++;
 			}
-		  tx.success();
+			tx.success();
 		} finally {
 			tx.finish();
 		}

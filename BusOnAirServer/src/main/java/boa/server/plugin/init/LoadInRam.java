@@ -32,7 +32,7 @@ public class LoadInRam {
 	private int nodesNumber;
 	private int relationshipsNumber;
 	private long loadingTime;
-  private GlobalGraphOperations graphOperation;
+	private GlobalGraphOperations graphOperation;
 
 	public LoadInRam() {
 
@@ -47,7 +47,7 @@ public class LoadInRam {
 			OutputFormat output) throws IOException {
 		DbConnection.createDbConnection(database);
 		graph = DbConnection.getDb();
-    graphOperation = GlobalGraphOperations.at(graph);
+		graphOperation = GlobalGraphOperations.at(graph);
 
 	}
 

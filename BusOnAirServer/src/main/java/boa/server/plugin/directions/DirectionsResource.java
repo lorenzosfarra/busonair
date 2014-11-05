@@ -25,7 +25,6 @@ import boa.server.routing.Criteria;
 import boa.server.routing.ShortestPathGeo;
 import boa.server.config.BoaConfig;
 
-
 @Path("/directions/getdirections")
 public class DirectionsResource {
 	private BufferedWriter log;

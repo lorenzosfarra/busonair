@@ -83,13 +83,13 @@ public class CheckPoint {
 	}
 
 	public CheckPoint getNextCheckPoint() {
-			Relationship rel = underlyingNode.getSingleRelationship(
-					RelTypes.NEXTCHECKPOINT, Direction.OUTGOING);
-			if (rel == null) {
-				return null;
-			} else {
-				return new CheckPoint(rel.getEndNode());
-			}
+		Relationship rel = underlyingNode.getSingleRelationship(
+				RelTypes.NEXTCHECKPOINT, Direction.OUTGOING);
+		if (rel == null) {
+			return null;
+		} else {
+			return new CheckPoint(rel.getEndNode());
+		}
 
 	}
 

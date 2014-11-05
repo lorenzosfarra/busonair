@@ -151,19 +151,17 @@ public class Station {
 
 		IndexHits<Node> hits = stopIndex.query(query);
 		if ((hits == null) || (hits.size() < 1)) {
-      // XXX: This should be part of the graph?
-      // For now we check this in the code
-      if (startTime >= 8640) {
-        // Last day! Start the research with the first!
-        return getFirstStopFromTime(0);
+			// XXX: This should be part of the graph?
+			// For now we check this in the code
+			if (startTime >= 8640) {
+				// Last day! Start the research with the first!
+				return getFirstStopFromTime(0);
 
-      } else {
-			  hits.close();
-			  return null;
-      }
+			} else {
+				hits.close();
+				return null;
+			}
 		}
-
-
 
 		Node n = hits.next();
 		hits.close();

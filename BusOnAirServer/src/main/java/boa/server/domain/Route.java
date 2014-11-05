@@ -215,19 +215,20 @@ public class Route {
 	 */
 	public Run getFirstAvailableRun() {
 		long secondsSinceMidnight = DateUtil.getSecondsSinceMidnight();
-    long currentBest = 9223372036854775807L;
-    Run bestRun = null;
+		long currentBest = 9223372036854775807L;
+		Run bestRun = null;
 		for (Run r : getAllRuns()) {
-      CheckPoint cp = r.getFirstCheckPoint();
-      // First iteration?
-      long cpSeconds = cp.getTimeInSeconds();
-      if ((cpSeconds >= secondsSinceMidnight) && (cpSeconds < currentBest)) {
-		    //starting somehow in the future? 
-        currentBest = cpSeconds;
-        bestRun = new Run(r.getUnderlyingNode());
-      } 
-    }
-    return bestRun;
+			CheckPoint cp = r.getFirstCheckPoint();
+			// First iteration?
+			long cpSeconds = cp.getTimeInSeconds();
+			if ((cpSeconds >= secondsSinceMidnight)
+					&& (cpSeconds < currentBest)) {
+				// starting somehow in the future?
+				currentBest = cpSeconds;
+				bestRun = new Run(r.getUnderlyingNode());
+			}
+		}
+		return bestRun;
 	}
 
 }

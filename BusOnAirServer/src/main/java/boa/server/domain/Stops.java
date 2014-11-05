@@ -78,7 +78,7 @@ public class Stops {
 					js.getStaticTime(), staz, run);
 			addStop(s);
 		}
-		
+
 		s.updateStaticTime(js.getStaticTime());
 		s.setRun(run);
 		s.setStation(staz);
@@ -122,7 +122,7 @@ public class Stops {
 				tx.finish();
 			}
 			i++;
-  	}
+		}
 
 	}
 

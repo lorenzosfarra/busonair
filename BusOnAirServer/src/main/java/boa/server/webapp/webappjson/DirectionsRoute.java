@@ -167,12 +167,12 @@ public class DirectionsRoute {
 	}
 
 	private String convertTime(double time) {
-    LocalDate now = new LocalDate();
-    LocalDate monday = now.withDayOfWeek(DateTimeConstants.MONDAY);
-    DateTime dt = monday.toDateTimeAtStartOfDay();
+		LocalDate now = new LocalDate();
+		LocalDate monday = now.withDayOfWeek(DateTimeConstants.MONDAY);
+		DateTime dt = monday.toDateTimeAtStartOfDay();
 
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("E HH:mm");
-		//DateTime dt = new DateTime(2010, 1, 1, 0, 0, 0, 0);
+		// DateTime dt = new DateTime(2010, 1, 1, 0, 0, 0, 0);
 		DateTime date = dt.plusMinutes((int) time);
 		return date.toString(formatter);
 	}

@@ -305,17 +305,17 @@ public class RunsResource {
 							"No run having the specified id.")).build();
 
 		run.restore();
-    ch.stop();
+		ch.stop();
 
-    String msg = "time: " + ch.getTime();
+		String msg = "time: " + ch.getTime();
 
 		return Response.ok()
 				.entity(new boa.server.plugin.json.Response(200, msg)).build();
 
-
-		//boa.server.plugin.json.Response jr = new boa.server.plugin.json.Response(
-		//		200, "OK");
-		//return Response.ok().entity(jr).build();
+		// boa.server.plugin.json.Response jr = new
+		// boa.server.plugin.json.Response(
+		// 200, "OK");
+		// return Response.ok().entity(jr).build();
 	}
 
 	@GET
@@ -461,13 +461,13 @@ public class RunsResource {
 
 		run.updatePosition(lat, lon, time);
 
-    ch.stop();
+		ch.stop();
 
-    String msg = "time: " + ch.getTime();
+		String msg = "time: " + ch.getTime();
 
 		return Response.ok()
 				.entity(new boa.server.plugin.json.Response(200, msg)).build();
-				//.entity(new boa.server.plugin.json.Response(200, "OK")).build();
+		// .entity(new boa.server.plugin.json.Response(200, "OK")).build();
 	}
 
 	@GET
@@ -488,17 +488,17 @@ public class RunsResource {
 							"No run having the specified id.")).build();
 
 		run.addCheckPoint(lat, lon, time);
-    ch.stop();
+		ch.stop();
 
-    String msg = "time: " + ch.getTime();
+		String msg = "time: " + ch.getTime();
 
 		return Response.ok()
 				.entity(new boa.server.plugin.json.Response(200, msg)).build();
 
-
-		//boa.server.plugin.json.Response jr = new boa.server.plugin.json.Response(
-		//		200, "OK");
-		//return Response.ok().entity(jr).build();
+		// boa.server.plugin.json.Response jr = new
+		// boa.server.plugin.json.Response(
+		// 200, "OK");
+		// return Response.ok().entity(jr).build();
 	}
 
 	@GET
