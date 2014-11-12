@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npm install 
-node webapp/server.js
+node webapp/server.js &
